@@ -18,12 +18,12 @@ class Blather():
     
     def read(self, data, epochs=1, batch_size = 4):
 
-        # We expect data to be passed as a list of strings representing sentences, we can add in a capability to read a .txt file 
+        delim = input("Type delimiter of data")
         if isinstance(data,str):
             if data[-3:] == "txt":
                 with open(data, "r") as file:
-                    content = file.read().replace('\n','')
-                data = list(map(str.strip, content.split(".")))
+                    content = file.read()
+                data = list(map(str.strip, content.split(delim)))
 
         dataset = self.GPT2Dataset(data, tokenizer=self.tokenizer, max_length=103)
 
