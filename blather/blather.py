@@ -18,7 +18,7 @@ class Blather():
     
     def read(self, data, epochs=1, batch_size = 4):
 
-        delim = input("Type delimiter of data")
+        delim = "----"
         if isinstance(data,str):
             if data[-3:] == "txt":
                 with open(data, "r") as file:
